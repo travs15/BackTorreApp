@@ -41,7 +41,6 @@ public class Controller {
 
             response.put(Constants.RESPONSE, p);
             response.put(Constants.STATUS, HttpStatus.OK);
-
             return new ResponseEntity<Map<String, Object>> (response, (HttpStatus) response.get("status"));
         }
         catch(Exception  e) {
