@@ -25,7 +25,7 @@ public class Controller {
         Map<String, Object> response = new HashMap<String,Object>();
         Person p = new Person();
         try {
-            String obj = restTemplate.getForObject("https://bio.torre.co/api/bios/"+personId, String.class);
+            String obj = restTemplate.getForObject(Constants.TORRE_PERSON +personId, String.class);
             JsonObject jsonObject = new JsonParser().parse(obj).getAsJsonObject();
 
             p.setName(jsonObject.get("person").getAsJsonObject().get("name").getAsString());
@@ -56,7 +56,7 @@ public class Controller {
         Map<String, Object> response = new HashMap<String,Object>();
         Skill s = new Skill();
         try {
-            String obj = restTemplate.getForObject("https://torre.co/api/genome/bios/"+publicId+"/strengths-skills/"+skillId+"/detail", String.class);
+            String obj = restTemplate.getForObject(Constants.TORRE_SKILLS+publicId+"/strengths-skills/"+skillId+"/detail", String.class);
             JsonObject jsonObject = new JsonParser().parse(obj).getAsJsonObject();
 
             s.setSkillName(jsonObject.get("name").getAsString());
